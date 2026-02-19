@@ -1,11 +1,56 @@
-.card{
+.card {
+  width: 80px;
+  height: 80px;
+  perspective: 800px;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.cardInner.flipped {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 600;
+  backface-visibility: hidden;
+}
+
+.cardFront {
+  background: #1f2937;
+  color: white;
+}
+
+.cardBack {
+  background: #f9fafb;
+  transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 768px) {
+  .card {
     width: 100px;
     height: 100px;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
+  }
+  .cardFront,
+  .cardBack {
+    font-size: 40px;
+  }
 }
+

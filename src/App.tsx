@@ -16,20 +16,22 @@ function App() {
   } = useMemoryGame({ initialPairsCount: 6, flipBackDelayMs: 1000 });
 
   return (
-    <div>
-      <h1>Mamory game</h1>
+    <div className="app">
+      <h1 className="title">Mamory game</h1>
       <PairsSelector
         maxPairs={maxPairs}
         pairsCount={pairsCount}
         onDescrement={() => setPairsCount(pairsCount - 1)}
         onIncrement={() => setPairsCount(pairsCount + 1)}
       />
-      <div>Moves: {moves}</div>
-      <button type="button" onClick={() => resetGame()}>
-        Restart
-      </button>
-      {isWin && <div>You win 🎉</div>}
-      <CardList cards={cards} onCardClick={onCardClick} />
+      <div className="stats">
+        <div className="moves">Moves: {moves}</div>
+        <button type="button" className="restart" onClick={() => resetGame()} aria-label="restart">
+          Restart
+        </button>
+      </div>
+      {isWin && <div className="win">You win 🎉</div>}
+      <CardList cards={cards} pairsCount={pairsCount} onCardClick={onCardClick} />
     </div>
   );
 }

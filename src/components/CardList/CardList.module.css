@@ -1,10 +1,35 @@
 .cardList {
+  --cols: 3;
+
   padding: 0;
   margin: 0 auto;
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 80px);
+  gap: 12px;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+}
+
+@media screen and (max-width: 380px) {
+  .cardList {
+    grid-template-columns: repeat(min(var(--cols), 3), 80px);
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width: 767px) {
+  .cardList {
+    grid-template-columns: repeat(min(var(--cols), 4), 80px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cardList {
+    grid-template-columns: repeat(min(var(--cols), 5), 100px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardList {
+    grid-template-columns: repeat(var(--cols), 100px);
+  }
 }

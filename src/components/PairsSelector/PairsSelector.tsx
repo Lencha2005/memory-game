@@ -20,6 +20,7 @@ const PairsSelector = ({
         className={styles.btn}
         onClick={onDescrement}
         disabled={pairsCount <= 2}
+        aria-label="decrement"
       >
         -
       </button>
@@ -29,6 +30,7 @@ const PairsSelector = ({
         className={styles.btn}
         onClick={onIncrement}
         disabled={pairsCount >= maxPairs}
+        aria-label="increment"
       >
         +
       </button>

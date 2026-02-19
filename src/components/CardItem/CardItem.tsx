@@ -8,9 +8,19 @@ type CardItemProps = {
 };
 
 const CardItem = ({ card, onCardClick }: CardItemProps) => {
+  const isFlipped = card.isFlipped || card.isMatched;
+
   return (
-    <button className={styles.card} onClick={onCardClick}>
-      {card.isFlipped || card.isMatched ? card.emoji : "❓"}
+    <button
+      type="button"
+      className={styles.card}
+      onClick={onCardClick}
+      aria-label="card"
+    >
+      <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ""}`}>
+        <div className={styles.cardFront}>❓</div>
+        <div className={styles.cardBack}>{card.emoji}</div>
+      </div>
     </button>
   );
 };
